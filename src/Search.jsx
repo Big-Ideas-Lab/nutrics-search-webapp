@@ -33,9 +33,10 @@ class Search extends Component {
       withCredentials: true,
       credentials: 'same-origin',
     }
-    axios(url, config)
+    axios(url)
     .then(res => {
       console.log(res);
+      this.setState({ results: res.data })
     })
     .catch(err => {
       console.log(err);

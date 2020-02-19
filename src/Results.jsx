@@ -6,32 +6,30 @@ class Results extends Component {
 
   renderResults = () => {
     const { results } = this.props;
+    const keys = Object.keys(results)
+    console.log(keys);
+    // debugger;
     return (
-      <Feed>
-        {results.map((res) => (
-          <Feed.Event>
-            <Feed.Summary>
-              test
-            </Feed.Summary>
-          </Feed.Event>
+      <div>
+        {keys.map((key) => (
+          <div id={key}>
+            {key}: {results[key]}
+            <br />
+            <br />
+          </div>
         ))}
-      </Feed>
+      </div>
     );
   }
 
   render() {
+    const { results } = this.props;
+    const keys = Object.keys(results)
     return (
       <div>
-        <Card>
-          <Card.Content>
-            <Card.Header>Search Results</Card.Header>
-          </Card.Content>
-          <Card.Content>
-            {this.props.results.length > 0 ? this.renderResults() :
-              <Card.Description>Search an item to get results...</Card.Description>
-            }
-          </Card.Content>
-        </Card>
+        {keys.length > 0 ? this.renderResults() :
+          <Card.Description>Search an item to get results...</Card.Description>
+        }
       </div>
     );
   }
