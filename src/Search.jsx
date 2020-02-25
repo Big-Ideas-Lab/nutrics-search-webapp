@@ -61,6 +61,9 @@ class Search extends Component {
           textAlign: 'center',
         }}
       >
+        <h1>
+          Powered by Nutrics @ BIG IDEAs Lab
+        </h1>
         <Input
           placeholder="Search..."
           value={input}
