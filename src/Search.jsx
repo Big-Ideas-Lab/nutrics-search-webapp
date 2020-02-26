@@ -29,6 +29,12 @@ class Search extends Component {
     }
   }
 
+  onClick = () => {
+    if (this.state.input.trim() !== '') {
+      this.onSearch();
+    }
+  }
+
   onSearch = () => {
     const url = `https://moveitdev-bfe5e.appspot.com/get_random_nutrients/${this.state.input}`
     const config = {
@@ -60,7 +66,7 @@ class Search extends Component {
         circular
         link
         name='search'
-        onClick={this.onSearch}
+        onClick={this.onClick}
       />
     );
     return (
