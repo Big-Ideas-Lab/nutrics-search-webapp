@@ -21,6 +21,14 @@ class Search extends Component {
     })
   }
 
+  onKeyDown = ({ key }) => {
+    if (key == 'Enter') {
+      if (this.state.input.trim() !== '') {
+        this.onSearch();
+      }
+    }
+  }
+
   onSearch = () => {
     const url = `https://moveitdev-bfe5e.appspot.com/get_random_nutrients/${this.state.input}`
     const config = {
@@ -69,6 +77,7 @@ class Search extends Component {
           value={input}
           onChange={this.onInputChange}
           icon={searchIcon}
+          onKeyDown={this.onKeyDown}
         />
         <br />
         <br />
